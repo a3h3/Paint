@@ -1,0 +1,196 @@
+:root {
+  --cursor: 10px;
+  --cursorColor: black;
+  --bgColor: white;
+  --border: rgba(0,0,0,0.65);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  cursor: none;
+  font-family: sans-serif;
+}
+
+.draw-cursor {
+  position: fixed;
+  width: var(--cursor);
+  height: var(--cursor);
+  border-radius: 50%;
+  border: 0.075rem solid white;
+  pointer-events: none;
+}
+
+.draw-cursor::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: 0.075rem solid var(--cursorColor);
+  border-radius: 50%;
+}
+
+.draw-interface {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2rem;
+  display: flex;
+  list-style-type: none;
+  border: 0.075rem solid var(--border);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  background-color: var(--bgColor);
+}
+
+.draw-icon {
+  font-size: 1.2rem;
+  margin: 0.7rem; 
+  color: var(--border);
+}
+
+li:hover {
+  background: #eee;
+}
+
+.draw-item-brush,
+.draw-item-brush_2,
+.draw-item-brush_3,
+.draw-item-brush_4,
+.draw-item-brush_5,
+.draw-item-brush_6
+{ position: relative; }
+
+.draw-item-brush::after
+{
+  content: 'painter';
+}
+.draw-item-brush_2::after
+{
+  content: 'background';
+}
+.draw-item-brush_3::after
+{
+  content: 'Back';
+}
+.draw-item-brush_4::after
+{
+  content: 'progress';
+}
+.draw-item-brush_5::after
+{
+  content: 'update';
+}
+.draw-item-brush_6::after
+{
+  content: 'save';
+}
+
+.draw-item-brush::after,
+.draw-item-brush_2::after,
+.draw-item-brush_3::after,
+.draw-item-brush_4::after,
+.draw-item-brush_5::after,
+.draw-item-brush_6::after
+{
+  color: var(--bgColor);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: -40px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: var(--cursorColor);
+  display: none;
+  z-index: -1;
+}
+
+.draw-item-brush:hover::after,
+.draw-item-brush_2:hover::after,
+.draw-item-brush_3:hover::after,
+.draw-item-brush_4:hover::after,
+.draw-item-brush_5:hover::after,
+.draw-item-brush_6:hover::after
+{
+  display: block;
+}
+
+
+.brush-modal {
+  position: absolute;
+  left: calc(-8rem / 2);
+  bottom: 4rem;
+  font: 400 0.65rem helvetica,sans-serif;
+  border: 0.075rem solid var(--border);
+  border-radius: 0.25rem;
+  background-color: var(--bgColor);
+  padding: 0.5rem;
+  cursor: default;
+  display: none;
+}
+
+.active { display: block; }
+
+.brush-modal::after {
+  content: '';
+  position: absolute;
+  bottom: -0.3rem;
+  left: calc(50% - 0.25rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 0.075rem solid var(--border);
+  border-bottom: 0.075rem solid var(--border);
+  transform: rotate(45deg);
+  background-color: var(--bgColor);
+}
+
+.brush-modal-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.25rem 0;
+}
+
+.brush-modal-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4rem;
+  height: 1px;
+  background-color: var(--border);
+}
+
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 0.075rem solid var(--border);
+  border-radius: 50%;
+  background-color: var(--bgColor);
+}
+
+.brush-modal-value {
+  width: 2rem;
+  border: 0.075rem solid var(--border);
+  padding: 0.25rem 0;
+  text-align: center;
+}
+
+.brush-modal-brushColor {
+  border: none;
+  background-color: transparent;
+  width: 1.5rem;
+}
+
+.draw-fill {
+  position: absolute;
+  display: none;
+}
+

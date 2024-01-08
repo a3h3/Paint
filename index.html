@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+  <main class='draw'>
+    <div class='draw-cursor'></div>
+    <ul class='draw-interface'>
+      <li class='draw-item-brush'>
+        <ion-icon class='draw-icon icon-brush' name="brush-outline"></ion-icon>
+        <div class='brush-modal'>
+          <div class='brush-modal-item'>
+            <span class='brush-modal-title'>width</span>
+            <input class='brush-modal-range' type='range' value='10' min='1' max='100' step='1'>
+            <span class='brush-modal-value'>10</span>
+          </div>
+          <div class='brush-modal-item'>
+            <span class='brush-modal-title'>color</span>
+            <input class='brush-modal-brushColor' type='color' value='#000000'>
+          </div>
+        </div>
+      </li>
+      <li class="draw-item-brush_2">
+        <ion-icon class='draw-icon icon-fill' name="color-fill-outline"></ion-icon>
+        <input class='draw-fill' type='color' value='#ffffff'>
+      </li>
+      <li class="draw-item-brush_3"><ion-icon class='draw-icon icon-undo' name="arrow-undo-outline"></ion-icon></li>
+      <li class="draw-item-brush_4"><ion-icon class='draw-icon icon-redo' name="arrow-redo-outline"></ion-icon></li>
+      <li class="draw-item-brush_5"><ion-icon class='draw-icon icon-clear' name="refresh-outline"></ion-icon></li>
+      <li class="draw-item-brush_6"><ion-icon class='draw-icon icon-save' name="save-outline"></ion-icon></li>
+    </ul>
+  </main>
+  <canvas class='canvas'></canvas>
+  
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+    <script src="./script.js"></script>
+</body>
+</html>
